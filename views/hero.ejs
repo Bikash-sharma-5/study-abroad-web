@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGlobe</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation -->
+    <nav class="px-8 py-4 flex justify-between items-center max-w-7xl mx-auto">
+        <a href="#" class="flex items-center space-x-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path>
+            </svg>
+            <span class="font-bold text-xl">EduGlobe</span>
+        </a>
+        
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="/form" class="nav-link">Apply</a>
+            <a href="/mbbs" class="nav-link">Countries</a>
+            
+           
+            <% if (locals.user) { %>
+               
+                 
+                 
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      class="nav-link"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                   
+                    </a>
+                   
+                      <a  class="nav-link" class="dropdown-item" href="/user/logout">Logout</a>
+                   
+                  <% } else {%> 
+                    <a class="nav-link"  class="nav-link" href="/user/signup">Create Account</a>
+                  
+                 
+                    <a class="nav-link"  class="nav-link" href="/user/signin">Signin</a>
+                 
+                  <% } %>
+        </div>
+
+       
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative pt-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-12">
+                <span class="bg-orange-50 text-orange-700 px-6 py-2 rounded-full text-sm font-medium inline-block">
+                    Join over 100,000 happy students
+                </span>
+            </div>
+
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl font-bold">Study MBBS Abroad</h1>
+                <p class="text-lg mt-2">Apply now to top medical universities worldwide!</p>
+        <a href="/form" class="bg-white text-blue-600 px-6 py-2 mt-4 inline-block font-bold rounded">Apply Now</a>
+            </div>
+        </div>
+
+        <!-- Carousel Section -->
+        <div class="carousel-wrapper mt-16">
+            <div class="carousel-container">
+                <div class="carousel-track" id="carousel">
+                    <% let images = [
+                        { src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", alt: "Business" },
+                        { src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80", alt: "Creative" },
+                        { src: "https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?w=800&q=80", alt: "Outdoor" },
+                        { src: "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=800&q=80", alt: "Wellness" },
+                        { src: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=800&q=80", alt: "Technology" },
+                        { src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80", alt: "Lifestyle" }
+                    ]; %>
+
+                    <% images.forEach(image => { %>
+                        <div class="carousel-card">
+                            <img src="<%= image.src %>" alt="<%= image.alt %>" loading="lazy">
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="text-center mt-12 mb-20">
+            <button class="premium-button text-white px-8 py-3 rounded-full text-lg font-medium shadow-lg">
+                Get Started
+            </button>
+        </div>
+    </main>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        let position = 0;
+        let speed = 0.5;
+
+        function moveCarousel() {
+            position -= speed;
+            if (position < -320) {
+                position = 0;
+                carousel.appendChild(carousel.firstElementChild);
+            }
+            carousel.style.transform = `rotate(-5deg) translateX(${position}px)`;
+            requestAnimationFrame(moveCarousel);
+        }
+
+        moveCarousel();
+
+        carousel.addEventListener('mouseenter', () => speed = 0);
+        carousel.addEventListener('mouseleave', () => speed = 0.5);
+    </script>
+
+</body>
+</html>

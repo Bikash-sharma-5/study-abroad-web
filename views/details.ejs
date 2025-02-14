@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study MBBS in <%= destination.country %></title>
+    <link rel="stylesheet" href="/style1.css">
+</head>
+<body>
+    <header>
+        <h1>Study MBBS in <%= destination.country %></h1>
+    </header>
+
+    <section class="details">
+        <img src="<%= destination.image %>" alt="<%= destination.country %>">
+        <p><%= destination.description %></p>
+        
+        <h3>Key Information</h3>
+        <ul>
+            <li><strong>Capital:</strong> <%= destination.capital %></li>
+            <li><strong>Tuition Fees:</strong> <%= destination.tuition_fees %></li>
+            <li><strong>Living Cost:</strong> <%= destination.living_cost %></li>
+            <li><strong>Course Duration:</strong> <%= destination.duration %></li>
+            <li><strong>Languages:</strong> <%= destination.language %></li>
+        </ul>
+
+        <h3>Popular Universities</h3>
+        <ul>
+            <% destination.popular_universities.forEach(university => { %>
+                <li><%= university %></li>
+            <% }); %>
+        </ul>
+
+        <h3>Admission Details</h3>
+        <p><strong>Eligibility:</strong> <%= destination.admission_details.eligibility %></p>
+        <p><strong>Intake Months:</strong> <%= destination.admission_details.intake_months.join(", ") %></p>
+        <p><strong>Application Process:</strong> <%= destination.admission_details.application_process %></p>
+
+        <a href="/" class="button">Back to Home</a>
+    </section>
+</body>
+</html>

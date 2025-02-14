@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study MBBS Abroad</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Study MBBS Abroad</h1>
+        <div class="grid">
+            <% mbbsDestinations.forEach(item => { %>
+                <div class="card">
+                    <img src="<%= item.image %>" alt="<%= item.country %>" loading="lazy">
+                    <h2><%= item.country %></h2>
+                    <p><%= item.description %></p>
+                    <p><strong>Tuition:</strong> <%= item.tuition_fees %></p>
+                    <a href="/details/<%= item.country %>" class="button">Learn More</a>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+    
+</body>
+</html>

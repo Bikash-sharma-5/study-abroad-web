@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style1.css">
+   
+  
+      <title>Study MBBS Abroad - Best Programs & Universities</title>
+      <meta name="description" content="Find the best MBBS programs abroad. Compare universities, fees, and apply easily.">
+      <meta name="keywords" content="Study MBBS abroad, MBBS universities, medical education, best MBBS programs">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Schema Markup (JSON-LD) for SEO -->
+      <script type="application/ld+json" defer>
+        {
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          "name": "MBBS Abroad",
+          "url": "https://yourwebsite.com",
+          "description": "Find top MBBS programs abroad with detailed information on universities, fees, and application process.",
+          "sameAs": [
+            "https://www.facebook.com/yourpage",
+            "https://www.instagram.com/yourprofile"
+          ]
+        }
+        </script>
+        <!-- Google Analytics Tracking Script -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" defer></script>
+<script defer>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Facebook Pixel -->
+<script defer>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+</noscript>
+
+
+  
+    <style>
+      #mbbs-abroad{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #mbbs-abroad h2{
+        font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+   
+    
+
+  
+    <%- include('./hero')%>
+     
+    <section id="why-mbbs">
+      <h2>Why Study MBBS Abroad?</h2>
+      <div class="benefits-grid">
+          <div class="benefit">
+              <img src="/images/7.jpg" alt="Affordable Tuition">
+              <h3>Affordable Tuition Fees</h3>
+              <p>Many universities offer cost-effective MBBS programs compared to private institutions in India.</p>
+          </div>
+          <div class="benefit">
+              <img src="/images/2.jpg" alt="Globally Recognized Degree">
+              <h3>Globally Recognized Degree</h3>
+              <p>Graduates receive internationally accepted degrees from MCI, WHO, and NMC-approved universities.</p>
+          </div>
+          <div class="benefit">
+              <img src="/images/3.jpg" alt="High-Quality Education">
+              <h3>High-Quality Education</h3>
+              <p>Universities abroad provide excellent infrastructure, experienced faculty, and modern technology.</p>
+          </div>
+          <div class="benefit">
+              <img src="/images/4.jpg" alt="Global Exposure">
+              <h3>Global Exposure</h3>
+              <p>Studying abroad helps students gain global medical exposure and diverse clinical experience.</p>
+          </div>
+          <div class="benefit">
+              <img src="/images/5.jpg" alt="Easy Admission Process">
+              <h3>Simple Admission Process</h3>
+              <p>Most universities have minimal entrance requirements, making it easy for students to apply.</p>
+          </div>
+          <div class="benefit">
+              <img src="/images/6.jpg" alt="Job Opportunities">
+              <h3>Better Career Opportunities</h3>
+              <p>Graduates can work in multiple countries with high demand for qualified doctors.</p>
+          </div>
+      </div>
+  </section>
+  
+    
+    
+    <%- include('./guide')%>
+    <section id="mbbs-abroad">
+      <h2>Study MBBS Abroad</h2>
+      <div class="grid">
+          <% mbbsDestinations.forEach(item => { %>
+              <div class="card">
+                  <img src="<%= item.image %>" alt="<%= item.country %>" loading="lazy">
+                  <h3><%= item.country %></h3>
+                  <p><%= item.description %></p>
+                  <p><strong>Tuition:</strong> <%= item.tuition_fees %></p>
+                  <a href="/details/<%= item.country %>" class="button">Learn More</a>
+              </div>
+          <% }); %>
+      </div>
+  </section>
+  
+
+
+ 
+    <%- include('./partials/scripts') %>
+  </body>
+</html>
